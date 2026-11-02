@@ -695,6 +695,10 @@ private object AppUpgrade {
                     putFloat(createPrefKeyForBooleanSettings(Settings.PREF_KEY_GAP_SCALE_PREFIX, 1, 2), 1.1f)
                     putFloat(createPrefKeyForBooleanSettings(Settings.PREF_KEY_GAP_SCALE_PREFIX, 2, 2), 1.75f)
                     putFloat(createPrefKeyForBooleanSettings(Settings.PREF_KEY_GAP_SCALE_PREFIX, 3, 2), 1.1f)
+                    putFloat(createPrefKeyForBooleanSettings(Settings.PREF_VERTICAL_KEY_GAP_SCALE_PREFIX, 0, 2), 1.75f)
+                    putFloat(createPrefKeyForBooleanSettings(Settings.PREF_VERTICAL_KEY_GAP_SCALE_PREFIX, 1, 2), 1.1f)
+                    putFloat(createPrefKeyForBooleanSettings(Settings.PREF_VERTICAL_KEY_GAP_SCALE_PREFIX, 2, 2), 1.75f)
+                    putFloat(createPrefKeyForBooleanSettings(Settings.PREF_VERTICAL_KEY_GAP_SCALE_PREFIX, 3, 2), 1.1f)
                 }
                 remove("narrow_key_gaps")
             }

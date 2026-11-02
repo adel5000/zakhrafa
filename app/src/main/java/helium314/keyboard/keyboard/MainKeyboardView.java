@@ -45,6 +45,7 @@ import helium314.keyboard.keyboard.internal.SlidingKeyInputDrawingPreview;
 import helium314.keyboard.keyboard.internal.TimerHandler;
 import helium314.keyboard.keyboard.internal.keyboard_parser.floris.KeyCode;
 import helium314.keyboard.latin.R;
+import helium314.keyboard.latin.RichInputMethodManager;
 import helium314.keyboard.latin.RichInputMethodSubtype;
 import helium314.keyboard.latin.SuggestedWords;
 import helium314.keyboard.latin.common.ColorType;
@@ -803,6 +804,16 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
         return newLocales;
     }
 
+    // Show "◄ Language ►" when swiping the spacebar switches between this keyboard's languages.
+    private String withLanguageSwipeArrows(final String languageText) {
+        if (languageText.isEmpty()
+                || Settings.getValues().mSpaceSwipeHorizontal != KeyboardActionListener.SwipeAction.SWITCH_LANGUAGE
+                || !RichInputMethodManager.getInstance().hasMultipleEnabledSubtypesInThisIme(false)) {
+            return languageText;
+        }
+        return "◄  " + languageText + "  ►";
+    }
+
     private void drawLanguageOnSpacebar(final Key key, final Canvas canvas, final Paint paint) {
         final Keyboard keyboard = getKeyboard();
         if (keyboard == null) {
@@ -821,7 +832,7 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
             spaceText = l != null ? l : layoutLanguageOnSpacebar(paint, keyboard.mId.getSubtype(), width);
         }
         else
-            spaceText = layoutLanguageOnSpacebar(paint, keyboard.mId.getSubtype(), width);
+            spaceText = withLanguageSwipeArrows(layoutLanguageOnSpacebar(paint, keyboard.mId.getSubtype(), width));
         paint.setTypeface(KeyboardTypeface.resolve(spaceText, Typeface.DEFAULT));
         // Draw language text with shadow
         final float descent = paint.descent();

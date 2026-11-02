@@ -65,7 +65,16 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
         const val THEME_PINK = "pink"
         const val THEME_SAND = "sand"
         const val THEME_VIOLETTE = "violette"
+        const val THEME_ZAKHRAFA = "zakhrafa"
+        const val THEME_ZAKHRAFA_DARK = "zakhrafa_dark"
+        const val THEME_INKLY = "inkly"
+        const val THEME_INKLY_DARK = "inkly_dark"
+        const val THEME_NUQTA = "nuqta"
+        const val THEME_NUQTA_DARK = "nuqta_dark"
         fun getAvailableDefaultColors(prefs: SharedPreferences, isNight: Boolean) = listOfNotNull(
+            if (!isNight) THEME_ZAKHRAFA else null, THEME_ZAKHRAFA_DARK,
+            if (!isNight) THEME_INKLY else null, THEME_INKLY_DARK,
+            if (!isNight) THEME_NUQTA else null, THEME_NUQTA_DARK,
             if (!isNight) THEME_LIGHT else null, THEME_DARK,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) THEME_DYNAMIC else null,
             if (prefs.getString(Settings.PREF_THEME_STYLE, Defaults.PREF_THEME_STYLE) == STYLE_HOLO) THEME_HOLO_WHITE else null,
@@ -334,6 +343,80 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
                     Color.rgb(150, 150, 216),
                     Color.WHITE,
                     Color.WHITE,
+                    keyboardBackground = backgroundImage
+                )
+                THEME_ZAKHRAFA -> DefaultColors(
+                    themeStyle,
+                    hasBorders,
+                    "#0F6E73".toColorInt(),
+                    "#EFE7D6".toColorInt(),
+                    "#FFFDF8".toColorInt(),
+                    "#E2D5BA".toColorInt(),
+                    "#FFFDF8".toColorInt(),
+                    "#12343B".toColorInt(),
+                    "#3D5A60".toColorInt(),
+                    gesture = "#C8901A".toColorInt(),
+                    keyboardBackground = backgroundImage
+                )
+                THEME_ZAKHRAFA_DARK -> DefaultColors(
+                    themeStyle,
+                    hasBorders,
+                    "#E0A526".toColorInt(),
+                    "#0C2A30".toColorInt(),
+                    "#173E46".toColorInt(),
+                    "#11333A".toColorInt(),
+                    "#173E46".toColorInt(),
+                    "#F6F1E7".toColorInt(),
+                    "#A9BDBF".toColorInt(),
+                    keyboardBackground = backgroundImage
+                )
+                THEME_INKLY -> DefaultColors(
+                    themeStyle,
+                    hasBorders,
+                    "#2A3FD6".toColorInt(),
+                    "#E6E9F4".toColorInt(),
+                    Color.WHITE,
+                    "#CDD3EA".toColorInt(),
+                    Color.WHITE,
+                    "#141B34".toColorInt(),
+                    "#48506E".toColorInt(),
+                    gesture = "#FF6B5B".toColorInt(),
+                    keyboardBackground = backgroundImage
+                )
+                THEME_INKLY_DARK -> DefaultColors(
+                    themeStyle,
+                    hasBorders,
+                    "#FF6B5B".toColorInt(),
+                    "#12152A".toColorInt(),
+                    "#232845".toColorInt(),
+                    "#1A1E37".toColorInt(),
+                    "#232845".toColorInt(),
+                    "#E9ECF8".toColorInt(),
+                    "#9CA3C4".toColorInt(),
+                    keyboardBackground = backgroundImage
+                )
+                THEME_NUQTA -> DefaultColors(
+                    themeStyle,
+                    hasBorders,
+                    "#111214".toColorInt(),
+                    "#E4E4DF".toColorInt(),
+                    Color.WHITE,
+                    "#D2D2CC".toColorInt(),
+                    Color.WHITE,
+                    "#111214".toColorInt(),
+                    "#4A4C52".toColorInt(),
+                    keyboardBackground = backgroundImage
+                )
+                THEME_NUQTA_DARK -> DefaultColors(
+                    themeStyle,
+                    hasBorders,
+                    "#C6F432".toColorInt(),
+                    "#0E0F11".toColorInt(),
+                    "#1E2024".toColorInt(),
+                    "#16181B".toColorInt(),
+                    "#1E2024".toColorInt(),
+                    "#F2F2EF".toColorInt(),
+                    "#A3A5AA".toColorInt(),
                     keyboardBackground = backgroundImage
                 )
                 else -> { // user-defined theme

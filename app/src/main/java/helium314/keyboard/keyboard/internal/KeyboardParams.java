@@ -243,7 +243,7 @@ public class KeyboardParams {
             mRelativeHorizontalGap = keyboardAttr.getFraction(
                     R.styleable.Keyboard_horizontalGap, 1, 1, 0) * sv.mKeyGapScale;
             mRelativeVerticalGap = keyboardAttr.getFraction(
-                    R.styleable.Keyboard_verticalGap, 1, 1, 0) * sv.mKeyGapScale;
+                    R.styleable.Keyboard_verticalGap, 1, 1, 0) * sv.mVerticalKeyGapScale;
             mHorizontalGap = (int) (mRelativeHorizontalGap * width);
             mVerticalGap = (int) (mRelativeVerticalGap * height);
 

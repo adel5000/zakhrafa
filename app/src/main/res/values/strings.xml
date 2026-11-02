@@ -9,11 +9,11 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"
     tools:ignore="MissingTranslation">
     <!-- Name of Android spell checker service. The app name should not be translated. -->
-    <string name="spell_checker_service_name">HeliBoard Spell Checker</string>
+    <string name="spell_checker_service_name">Zakhrafa Spell Checker</string>
     <!-- Title for IME settings screen. The app name should not be translated. -->
-    <string name="ime_settings">HeliBoard Settings</string>
+    <string name="ime_settings">Zakhrafa Settings</string>
     <!-- Title for the spell checking service settings screen. The app name should not be translated. -->
-    <string name="android_spell_checker_settings">HeliBoard Spell Checker Settings</string>
+    <string name="android_spell_checker_settings">Zakhrafa Spell Checker Settings</string>
     <!-- Option to provide vibrate/haptic feedback on keypress -->
     <string name="vibrate_on_keypress">Vibrate on keypress</string>
     <!-- Option to provide vibrate/haptic feedback on keypress even in do not disturb mode -->
@@ -405,9 +405,17 @@
     <!-- Title of the setting for reduced distance between keys, todo: not used any more -->
     <string name="prefs_narrow_key_gaps">Narrow key gaps</string>
     <!-- Title of the setting for setting distance between keys -->
-    <string name="prefs_key_gap_scale">Key gap scale</string>
+    <string name="prefs_key_gap_scale">Horizontal key spacing</string>
+    <string name="prefs_vertical_key_gap_scale">Vertical key spacing</string>
+    <string name="settings_category_size_layout">Size &amp; layout</string>
+    <string name="keyboard_height_compact">Compact</string>
+    <string name="keyboard_height_normal">Normal</string>
+    <string name="keyboard_height_tall">Tall</string>
+    <string name="keyboard_font">Keyboard font</string>
+    <string name="keyboard_font_cairo">Cairo</string>
+    <string name="keyboard_font_system">System default</string>
     <!-- Title of the setting for setting keyboard height -->
-    <string name="prefs_keyboard_height_scale">Keyboard height scale</string>
+    <string name="prefs_keyboard_height_scale">Keyboard height</string>
     <!-- Title of the setting for setting bottom padding height -->
     <string name="prefs_bottom_padding_scale">Bottom padding scale</string>
     <!-- Title of the setting for setting height of the bottom row -->
@@ -759,6 +767,13 @@ New dictionary:
     <string name="theme_name_sand" tools:keep="@string/theme_name_sand">Sand</string>
     <!-- Theme name for violette theme -->
     <string name="theme_name_violette" tools:keep="@string/theme_name_violette">Violette</string>
+    <string name="theme_name_zakhrafa" tools:keep="@string/theme_name_zakhrafa">Zakhrafa</string>
+    <string name="theme_name_zakhrafa_dark" tools:keep="@string/theme_name_zakhrafa_dark">Zakhrafa Dark</string>
+    <string name="theme_name_inkly" tools:keep="@string/theme_name_inkly">Inkly</string>
+    <string name="theme_name_inkly_dark" tools:keep="@string/theme_name_inkly_dark">Inkly Dark</string>
+    <string name="theme_name_nuqta" tools:keep="@string/theme_name_nuqta">Nuqta</string>
+    <string name="theme_name_nuqta_dark" tools:keep="@string/theme_name_nuqta_dark">Nuqta Dark</string>
+    <string name="show_clipboard_key">Clipboard key</string>
     <!-- Theme name for user-defined theme -->
     <string name="theme_name_user" tools:keep="@string/theme_name_user">User-Defined</string>
     <!-- Theme name for user-defined theme night mode theme -->

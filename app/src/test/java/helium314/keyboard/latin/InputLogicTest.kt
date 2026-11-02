@@ -703,6 +703,8 @@ class InputLogicTest {
     }
 
     @Test fun moveCursorHorizontally() {
+        // the default horizontal space swipe switches language, so select cursor movement explicitly
+        latinIME.prefs().edit { putString(Settings.PREF_SPACE_HORIZONTAL_SWIPE, "MOVE_CURSOR") }
         chainInput("hello")
         assertEquals(5, cursor)
         latinIME.mKeyboardActionListener.onHorizontalSpaceSwipe(-2)

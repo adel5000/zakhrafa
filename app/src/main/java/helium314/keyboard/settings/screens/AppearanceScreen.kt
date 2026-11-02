@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import helium314.keyboard.keyboard.KeyboardSwitcher
 import helium314.keyboard.keyboard.KeyboardTheme
+import helium314.keyboard.keyboard.KeyboardTypeface
 import helium314.keyboard.keyboard.internal.KeyboardIconsSet
 import helium314.keyboard.latin.R
 import helium314.keyboard.latin.settings.Defaults
@@ -24,6 +25,8 @@ import helium314.keyboard.latin.utils.Log
 import helium314.keyboard.latin.utils.getActivity
 import helium314.keyboard.latin.utils.getStringResourceOrName
 import helium314.keyboard.latin.utils.prefs
+import helium314.keyboard.latin.utils.SubtypeSettings
+import helium314.keyboard.latin.utils.locale
 import helium314.keyboard.settings.preferences.ListPreference
 import helium314.keyboard.settings.SettingsWithoutKey
 import helium314.keyboard.settings.Setting
@@ -70,6 +73,21 @@ fun AppearanceScreen(
         Settings.PREF_NAVBAR_COLOR,
         SettingsWithoutKey.BACKGROUND_IMAGE,
         SettingsWithoutKey.BACKGROUND_IMAGE_LANDSCAPE,
+        R.string.settings_category_size_layout,
+        Settings.PREF_SHOW_NUMBER_ROW,
+        if (SubtypeSettings.getEnabledSubtypes(true).any { it.locale().language in localesWithLocalizedNumberRow })
+            Settings.PREF_LOCALIZED_NUMBER_ROW else null,
+        if (prefs.getBoolean(Settings.PREF_SHOW_HINTS, Defaults.PREF_SHOW_HINTS)
+            && prefs.getBoolean(Settings.PREF_SHOW_NUMBER_ROW, Defaults.PREF_SHOW_NUMBER_ROW))
+            Settings.PREF_SHOW_NUMBER_ROW_HINTS else null,
+        if (!prefs.getBoolean(Settings.PREF_SHOW_NUMBER_ROW, Defaults.PREF_SHOW_NUMBER_ROW))
+            Settings.PREF_SHOW_NUMBER_ROW_IN_SYMBOLS else null,
+        Settings.PREF_KEYBOARD_HEIGHT_SCALE_PREFIX,
+        Settings.PREF_SIDE_PADDING_SCALE_PREFIX,
+        Settings.PREF_KEY_GAP_SCALE_PREFIX,
+        Settings.PREF_VERTICAL_KEY_GAP_SCALE_PREFIX,
+        Settings.PREF_BOTTOM_ROW_SCALE_PREFIX,
+        Settings.PREF_BOTTOM_PADDING_SCALE_PREFIX,
         R.string.settings_category_miscellaneous,
         Settings.PREF_ENABLE_SPLIT_KEYBOARD,
         if (prefs.getBoolean(Settings.PREF_ENABLE_SPLIT_KEYBOARD_LANDSCAPE, Defaults.PREF_ENABLE_SPLIT_KEYBOARD)
@@ -78,13 +96,8 @@ fun AppearanceScreen(
             || prefs.getBoolean(Settings.PREF_ENABLE_SPLIT_KEYBOARD_FOLDED_LANDSCAPE, Defaults.PREF_ENABLE_SPLIT_KEYBOARD)
             )
             Settings.PREF_SPLIT_SPACER_SCALE_PREFIX else null,
-        if (prefs.getBoolean(Settings.PREF_THEME_KEY_BORDERS, Defaults.PREF_THEME_KEY_BORDERS))
-            Settings.PREF_KEY_GAP_SCALE_PREFIX else null,
-        Settings.PREF_KEYBOARD_HEIGHT_SCALE_PREFIX,
-        Settings.PREF_BOTTOM_ROW_SCALE_PREFIX,
-        Settings.PREF_BOTTOM_PADDING_SCALE_PREFIX,
-        Settings.PREF_SIDE_PADDING_SCALE_PREFIX,
         Settings.PREF_SPACE_BAR_TEXT,
+        Settings.PREF_KEYBOARD_FONT,
         SettingsWithoutKey.CUSTOM_FONT,
         Settings.PREF_FONT_SCALE,
         if (prefs.getBoolean(Settings.PREF_SHOW_HINTS, Defaults.PREF_SHOW_HINTS)) Settings.PREF_HINT_FONT_SCALE else null,
@@ -263,6 +276,16 @@ fun createAppearanceSettings(context: Context) = listOf(
             description = { "${(100 * it).toInt()}%" }
         ) { KeyboardSwitcher.getInstance().setThemeNeedsReload() }
     },
+    Setting(context, Settings.PREF_VERTICAL_KEY_GAP_SCALE_PREFIX, R.string.prefs_vertical_key_gap_scale) { setting ->
+        KeyboardScalePreference(
+            name = setting.title,
+            baseKey = setting.key,
+            dimensions = listOf(stringResource(R.string.landscape), stringResource(R.string.folded)),
+            defaults = Defaults.PREF_VERTICAL_KEY_GAP_SCALE,
+            range = 0.5f..2.5f,
+            description = { "${(100 * it).toInt()}%" }
+        ) { KeyboardSwitcher.getInstance().setThemeNeedsReload() }
+    },
     Setting(context, Settings.PREF_KEYBOARD_HEIGHT_SCALE_PREFIX, R.string.prefs_keyboard_height_scale) { setting ->
         KeyboardScalePreference(
             name = setting.title,
@@ -270,7 +293,12 @@ fun createAppearanceSettings(context: Context) = listOf(
             dimensions = listOf(stringResource(R.string.landscape), stringResource(R.string.folded)),
             defaults = Defaults.PREF_KEYBOARD_HEIGHT_SCALE,
             range = 0.3f..1.5f,
-            description = { "${(100 * it).toInt()}%" }
+            description = { "${(100 * it).toInt()}%" },
+            presets = listOf(
+                stringResource(R.string.keyboard_height_compact) to 0.85f,
+                stringResource(R.string.keyboard_height_normal) to 1f,
+                stringResource(R.string.keyboard_height_tall) to 1.15f,
+            )
         ) { KeyboardSwitcher.getInstance().setThemeNeedsReload() }
     },
     Setting(context, Settings.PREF_BOTTOM_ROW_SCALE_PREFIX, R.string.prefs_bottom_row_scale) { setting ->
@@ -305,6 +333,19 @@ fun createAppearanceSettings(context: Context) = listOf(
     },
     Setting(context, Settings.PREF_SPACE_BAR_TEXT, R.string.prefs_space_bar_text) {
         TextInputPreference(it, Defaults.PREF_SPACE_BAR_TEXT)
+    },
+    Setting(context, Settings.PREF_KEYBOARD_FONT, R.string.keyboard_font) { setting ->
+        ListPreference(
+            setting,
+            listOf(
+                stringResource(R.string.keyboard_font_cairo) to KeyboardTypeface.FONT_CAIRO,
+                stringResource(R.string.keyboard_font_system) to KeyboardTypeface.FONT_SYSTEM,
+            ),
+            Defaults.PREF_KEYBOARD_FONT
+        ) {
+            KeyboardTypeface.clearCache()
+            KeyboardSwitcher.getInstance().setThemeNeedsReload()
+        }
     },
     Setting(context, SettingsWithoutKey.CUSTOM_FONT, R.string.custom_font) {
         CustomFontPreference(it, Settings.getCustomFontFile(LocalContext.current), R.string.custom_font)

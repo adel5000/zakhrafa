@@ -93,6 +93,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     public static final String PREF_SHOW_LANGUAGE_SWITCH_KEY = "show_language_switch_key";
     public static final String PREF_LANGUAGE_SWITCH_KEY = "language_switch_key";
     public static final String PREF_SHOW_EMOJI_KEY = "show_emoji_key";
+    public static final String PREF_SHOW_CLIPBOARD_KEY = "show_clipboard_key";
     public static final String PREF_SHOW_DPAD_KEY = "show_dpad_key";
    public static final String PREF_VARIABLE_TOOLBAR_DIRECTION = "var_toolbar_direction";
     public static final String PREF_ADDITIONAL_SUBTYPES = "additional_subtypes";
@@ -106,11 +107,13 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     public static final String PREF_BOTTOM_PADDING_SCALE_PREFIX = "bottom_padding_scale";
     public static final String PREF_SIDE_PADDING_SCALE_PREFIX = "side_padding_scale";
     public static final String PREF_KEY_GAP_SCALE_PREFIX = "key_gap_scale";
+    public static final String PREF_VERTICAL_KEY_GAP_SCALE_PREFIX = "vertical_key_gap_scale";
     public static final String PREF_FLOATING_HEIGHT_PREFIX = "floating_height";
     public static final String PREF_FLOATING_WIDTH_PREFIX = "floating_width";
     public static final String PREF_FLOATING_ENABLED_PREFIX = "floating_enabled";
     public static final String PREF_FLOATING_POS_X_PREFIX = "floating_pos_x";
     public static final String PREF_FLOATING_POS_Y_PREFIX = "floating_pos_y";
+    public static final String PREF_KEYBOARD_FONT = "keyboard_font";
     public static final String PREF_FONT_SCALE = "font_scale";
     public static final String PREF_HINT_FONT_SCALE = "hint_font_scale";
     public static final String PREF_EMOJI_FONT_SCALE = "emoji_font_scale";
@@ -482,6 +485,12 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
         int index = SettingsKt.findIndexOfDefaultSetting(landscape, folded);
         float defaultValue = Defaults.PREF_KEY_GAP_SCALE[index];
         return prefs.getFloat(SettingsKt.createPrefKeyForBooleanSettings(PREF_KEY_GAP_SCALE_PREFIX, index, 2), defaultValue);
+    }
+
+    public static float readVerticalKeyGapScale(SharedPreferences prefs, boolean landscape, boolean folded) {
+        int index = SettingsKt.findIndexOfDefaultSetting(landscape, folded);
+        float defaultValue = Defaults.PREF_VERTICAL_KEY_GAP_SCALE[index];
+        return prefs.getFloat(SettingsKt.createPrefKeyForBooleanSettings(PREF_VERTICAL_KEY_GAP_SCALE_PREFIX, index, 2), defaultValue);
     }
 
     public static boolean readHasHardwareKeyboard(final Configuration conf) {

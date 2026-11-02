@@ -47,9 +47,9 @@ object Defaults {
     const val PREF_THEME_STYLE = KeyboardTheme.STYLE_MATERIAL
     fun PREF_ICON_STYLE(prefs: SharedPreferences) = prefs.getString(Settings.PREF_THEME_STYLE, PREF_THEME_STYLE)!!
     const val PREF_ACCENT_SHIFTED_ICON = false
-    const val PREF_THEME_COLORS = KeyboardTheme.THEME_LIGHT
-    const val PREF_THEME_COLORS_NIGHT = KeyboardTheme.THEME_DARK
-    const val PREF_THEME_KEY_BORDERS = false
+    const val PREF_THEME_COLORS = KeyboardTheme.THEME_ZAKHRAFA
+    const val PREF_THEME_COLORS_NIGHT = KeyboardTheme.THEME_ZAKHRAFA_DARK
+    const val PREF_THEME_KEY_BORDERS = true
     @JvmField
     val PREF_THEME_DAY_NIGHT = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
     const val PREF_CUSTOM_ICON_NAMES = ""
@@ -78,7 +78,8 @@ object Defaults {
     const val PREF_BLOCK_POTENTIALLY_OFFENSIVE = true
     const val PREF_SHOW_LANGUAGE_SWITCH_KEY = false
     const val PREF_LANGUAGE_SWITCH_KEY = "internal"
-    const val PREF_SHOW_EMOJI_KEY = false
+    const val PREF_SHOW_EMOJI_KEY = true
+    const val PREF_SHOW_CLIPBOARD_KEY = true
     const val PREF_SHOW_DPAD_KEY = true
     const val PREF_VARIABLE_TOOLBAR_DIRECTION = true
     const val PREF_ADDITIONAL_SUBTYPES = "de${Separators.SET}${ExtraValue.KEYBOARD_LAYOUT_SET}=MAIN:qwerty${Separators.SETS}" +
@@ -98,13 +99,16 @@ object Defaults {
     val PREF_SIDE_PADDING_SCALE = Array(8) { 0f }
     @JvmField
     val PREF_KEY_GAP_SCALE = Array(4) { DEFAULT_SIZE_SCALE }
+    @JvmField
+    val PREF_VERTICAL_KEY_GAP_SCALE = Array(4) { DEFAULT_SIZE_SCALE }
+    const val PREF_KEYBOARD_FONT = "cairo"
     const val PREF_FONT_SCALE = DEFAULT_SIZE_SCALE
     const val PREF_HINT_FONT_SCALE = DEFAULT_SIZE_SCALE
     const val PREF_EMOJI_FONT_SCALE = DEFAULT_SIZE_SCALE
     const val PREF_EMOJI_KEY_FIT = true
     const val PREF_EMOJI_SKIN_TONE = ""
     @JvmField
-    val PREF_SPACE_HORIZONTAL_SWIPE = KeyboardActionListener.SwipeAction.MOVE_CURSOR.name
+    val PREF_SPACE_HORIZONTAL_SWIPE = KeyboardActionListener.SwipeAction.SWITCH_LANGUAGE.name
     @JvmField
     val PREF_SPACE_VERTICAL_SWIPE = KeyboardActionListener.SwipeAction.NONE.name
     const val PREF_DELETE_SWIPE = 1
@@ -147,7 +151,7 @@ object Defaults {
     const val PREF_ONE_HANDED_SCALE = 1f
     const val PREF_SHOW_NUMBER_ROW = false
     const val PREF_SHOW_NUMBER_ROW_IN_SYMBOLS = true
-    const val PREF_LOCALIZED_NUMBER_ROW = true
+    const val PREF_LOCALIZED_NUMBER_ROW = false
     const val PREF_SHOW_NUMBER_ROW_HINTS = false
     const val PREF_CUSTOM_CURRENCY_KEY = ""
     const val PREF_SHOW_HINTS = true

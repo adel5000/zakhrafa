@@ -17,9 +17,7 @@ import helium314.keyboard.latin.database.ClipboardDao
 import helium314.keyboard.latin.settings.Defaults
 import helium314.keyboard.latin.settings.Settings
 import helium314.keyboard.latin.utils.Log
-import helium314.keyboard.latin.utils.SubtypeSettings
 import helium314.keyboard.latin.utils.getActivity
-import helium314.keyboard.latin.utils.locale
 import helium314.keyboard.latin.utils.prefs
 import helium314.keyboard.settings.preferences.ListPreference
 import helium314.keyboard.settings.Setting
@@ -63,17 +61,10 @@ fun PreferencesScreen(
         Settings.PREF_SAVE_SUBTYPE_PER_APP,
         Settings.PREF_SHOW_EMOJI_DESCRIPTIONS,
         R.string.settings_category_additional_keys,
-        Settings.PREF_SHOW_NUMBER_ROW,
-        if (SubtypeSettings.getEnabledSubtypes(true).any { it.locale().language in localesWithLocalizedNumberRow })
-            Settings.PREF_LOCALIZED_NUMBER_ROW else null,
-        if (prefs.getBoolean(Settings.PREF_SHOW_HINTS, Defaults.PREF_SHOW_HINTS)
-            && prefs.getBoolean(Settings.PREF_SHOW_NUMBER_ROW, Defaults.PREF_SHOW_NUMBER_ROW))
-            Settings.PREF_SHOW_NUMBER_ROW_HINTS else null,
-        if (!prefs.getBoolean(Settings.PREF_SHOW_NUMBER_ROW, Defaults.PREF_SHOW_NUMBER_ROW))
-            Settings.PREF_SHOW_NUMBER_ROW_IN_SYMBOLS else null,
         Settings.PREF_SHOW_LANGUAGE_SWITCH_KEY,
         Settings.PREF_LANGUAGE_SWITCH_KEY,
         Settings.PREF_SHOW_EMOJI_KEY,
+        Settings.PREF_SHOW_CLIPBOARD_KEY,
         Settings.PREF_SHOW_DPAD_KEY,
         Settings.PREF_REMOVE_REDUNDANT_POPUPS,
         R.string.settings_category_clipboard_history,
@@ -160,6 +151,9 @@ fun createPreferencesSettings(context: Context) = listOf(
     Setting(context, Settings.PREF_SHOW_EMOJI_KEY, R.string.show_emoji_key) {
         SwitchPreference(it, Defaults.PREF_SHOW_EMOJI_KEY) { KeyboardSwitcher.getInstance().reloadKeyboard() }
     },
+    Setting(context, Settings.PREF_SHOW_CLIPBOARD_KEY, R.string.show_clipboard_key) {
+        SwitchPreference(it, Defaults.PREF_SHOW_CLIPBOARD_KEY) { KeyboardSwitcher.getInstance().reloadKeyboard() }
+    },
     Setting(context, Settings.PREF_SHOW_DPAD_KEY, R.string.show_dpad_key) {
         SwitchPreference(it, Defaults.PREF_SHOW_DPAD_KEY) { KeyboardSwitcher.getInstance().reloadKeyboard() }
     },
@@ -238,7 +232,7 @@ fun createPreferencesSettings(context: Context) = listOf(
     },
 )
 
-private val localesWithLocalizedNumberRow = listOf("ar", "bn", "ckb", "fa", "gu", "hi", "kn", "mr", "ne", "th", "ur")
+internal val localesWithLocalizedNumberRow = listOf("ar", "bn", "ckb", "fa", "gu", "hi", "kn", "mr", "ne", "th", "ur")
 
 @Preview
 @Composable

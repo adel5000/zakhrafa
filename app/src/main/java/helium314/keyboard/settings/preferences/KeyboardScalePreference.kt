@@ -53,6 +53,7 @@ fun KeyboardScalePreference(
     defaults: Array<Float>,
     range:  ClosedFloatingPointRange<Float>,
     description: (Float) -> String,
+    presets: List<Pair<String, Float>> = emptyList(),
     onDone: () -> Unit
 ) {
     if (defaults.size != 1.shl(dimensions.size))
@@ -72,7 +73,8 @@ fun KeyboardScalePreference(
             defaultValues = defaults,
             range = range,
             dimensions = dimensions,
-            positionString = description
+            positionString = description,
+            presets = presets
         )
 }
 
@@ -88,6 +90,7 @@ private fun KeyboardScaleDialog(
     dimensions: List<String>,
     modifier: Modifier = Modifier,
     positionString: (Float) -> String,
+    presets: List<Pair<String, Float>> = emptyList(),
 ) {
     val (variants, keys) = createVariantsAndKeys(dimensions, baseKey)
     val foldedString = stringResource(R.string.folded) // we want to hide foldable settings for non-foldable phones
@@ -136,6 +139,15 @@ private fun KeyboardScaleDialog(
                                     onValueChange = { sliderPosition = it },
                                     valueRange = range,
                                 )
+                                if (presets.isNotEmpty())
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.SpaceEvenly
+                                    ) {
+                                        presets.forEach { (label, value) ->
+                                            TextButton({ sliderPosition = value }) { Text(label) }
+                                        }
+                                    }
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalArrangement = Arrangement.SpaceBetween,

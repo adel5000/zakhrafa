@@ -1,141 +1,153 @@
-# HeliBoard
-HeliBoard is a privacy-conscious and customizable open-source keyboard, based on AOSP / OpenBoard.
-Does not use internet permission, and thus is 100% offline.
+<p align="center">
+  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Zakhrafa icon" width="112">
+</p>
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/helium314.keyboard/)
-[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" alt="Get APK from GitHub" height="80">](https://github.com/HeliBorg/HeliBoard/releases/latest)
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/fdroid/index/apk/helium314.keyboard)
+<h1 align="center">Zakhrafa · زخرفة</h1>
 
-## Table of Contents
+<p align="center">
+  An Arabic-first, privacy-respecting Android keyboard, based on HeliBoard.<br>
+  لوحة مفاتيح أندرويد عربية أولاً، تحترم خصوصيتك، مبنية على HeliBoard.
+</p>
 
-- [Features](#features)
-- [Contributing](#contributing-)
-   * [Reporting Issues](#reporting-issues)
-   * [Translations](#translations)
-   * [To Community](#to-community)
-   * [Code Contribution](CONTRIBUTING.md)
-- [Links](#links)
-- [License](#license)
-- [Credits](#credits)
-  * [Funding](#funding)
+<p align="center">
+  <a href="https://github.com/adel5000/zakhrafa/releases/latest"><img src="https://img.shields.io/github/v/release/adel5000/zakhrafa?include_prereleases&label=release" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-blue" alt="License: GPL-3.0"></a>
+  <img src="https://img.shields.io/badge/Android-5.0%2B-3DDC84?logo=android&logoColor=white" alt="Android 5.0+">
+  <img src="https://img.shields.io/badge/internet%20permission-none-success" alt="No internet permission">
+</p>
 
-# Features
-<ul>
-  <li>Add dictionaries for suggestions and spell check</li>
-  <ul>
-    <li>build your own, or get them  <a href="https://codeberg.org/Helium314/aosp-dictionaries#dictionaries">here</a> (quality may vary)</li>
-    <li>additional dictionaries for emojis or scientific symbols can be used to provide suggestions (similar to "emoji search")</li>
-    <li>note that for Korean layouts, suggestions only work using <a href="https://github.com/openboard-team/openboard/commit/83fca9533c03b9fecc009fc632577226bbd6301f">this dictionary</a>, the tools in the dictionary repository are not able to create working dictionaries</li>
-  </ul>
-  <li>Customize keyboard themes (style, colors and background image)</li>
-  <li>Emoji search (inline and separate, requires <a href="https://codeberg.org/Helium314/aosp-dictionaries">emoji dictionary</a>)</li>
-  <ul>
-    <li>can follow the system's day/night setting on Android 10+ (and on some versions of Android 9)</li>
-    <li>can follow dynamic colors for Android 12+</li>
-  </ul>
-  <li>Customize keyboard <a href="https://github.com/HeliBorg/HeliBoard/blob/main/layouts.md">layouts</a> (only available when disabling <i>use system languages</i>)</li>
-  <li>Customize special layouts, like symbols, number,  or functional key layout</li>
-  <li>Multilingual typing</li>
-  <li>Glide typing (<i>only with closed source library</i> ☹️)</li>
-  <ul>
-    <li>library not included in the app, as there is no compatible open source library available</li>
-    <li>can be extracted from GApps packages ("<i>swypelibs</i>"), or downloaded <a href="https://github.com/erkserkserks/openboard/tree/46fdf2b550035ca69299ce312fa158e7ade36967/app/src/main/jniLibs">here</a> (click on the file and then "raw" or the tiny download button)</li>
-  </ul>
-  <li>Clipboard history</li>
-  <li>One-handed mode</li>
-  <li>Split keyboard</li>
-  <li>Number pad</li>
-  <li>Backup and restore your settings and learned word / history data</li>
-</ul>
+<p align="center">
+  <a href="#english">English</a> · <a href="#العربية">العربية</a>
+</p>
 
-For [FAQ](https://github.com/HeliBorg/HeliBoard/wiki/FAQ), [hidden features](https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features) and more information about the app and features, please visit the [wiki](https://github.com/HeliBorg/HeliBoard/wiki)
+---
 
-# Contributing ❤
+## English
 
-## Reporting Issues
+Zakhrafa is an open-source keyboard designed around Arabic typing first. It has a refined Arabic layout, the Cairo typeface for clear Arabic key labels, and a set of themes designed for this app. It also brings over everything that makes HeliBoard a strong keyboard: offline suggestions, multilingual typing, clipboard history and deep customization.
 
-Whether you encountered a bug, or want to see a new feature in HeliBoard, you can contribute to the project by opening a new issue [here](https://github.com/HeliBorg/HeliBoard/issues). Your help is always welcome!
+The app requests **no internet permission**. Nothing you type can leave your device.
 
-Before opening a new issue, be sure to check the following:
- - **Does the issue already exist?** Make sure a similar issue has not been reported by browsing [existing issues](https://github.com/HeliBorg/HeliBoard/issues?q=). Please search open and closed issues. In case of feature requests you could also check the [FAQ](https://github.com/HeliBorg/HeliBoard/wiki/FAQ) and [hidden features](https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features).
- - **Is the issue still relevant?** Make sure your issue is not already fixed in the latest version of HeliBoard.
- - **Is it a single topic?** If you want to suggest multiple things, open multiple issues.
- - **Did you use the issue template?** It is important to make life of our kind contributors easier by avoiding issues that miss key information to their resolution.
- - **Is it written by a human?** Do not use LLMs or similar to generate issues. Having LLMs help with translation or similar is acceptable, but must be disclosed. See also [AI_USAGE.md](AI_USAGE.md)
-Note that issues that that ignore part of the issue template will likely get treated with very low priority, as often they are needlessly hard to read or understand (e.g. huge screenshots, not providing a proper description, or addressing multiple topics). Blatant violation of the guidelines may result in the issue getting closed.
+### What Zakhrafa adds
 
-If you're interested, you can read the following useful text about effective bug reporting (a bit longer read): https://www.chiark.greenend.org.uk/~sgtatham/bugs.html
+- **Refined Arabic layout:** `ى`, `آ` and `ئ` are on the main keys, and the bottom rows are reordered for more natural typing.
+- **Cairo typeface built in:** a variable-weight Arabic font that keeps key labels crisp at every size. You can switch to the system font, or load your own font file.
+- **Six new themes:** Zakhrafa, Inkly and Nuqta, each in a light and a dark variant. They follow your system's day/night setting and use key borders by default.
+- **Clipboard key** on the bottom row, next to the emoji key. Each key can be turned on or off separately.
+- **Swipe the spacebar to switch languages.** When more than one language is enabled, arrows (`◄ Language ►`) on the spacebar show that it's swipeable.
+- **Size & layout settings:** one-tap height presets (Compact, Normal, Tall) and separate horizontal and vertical key spacing.
+- **Redesigned text-editing pad:** arrow keys, jump to the start/end of the line or the text, select all, copy/cut, paste, delete, undo and redo. The pad is pinned to the toolbar.
 
-## Translations
-Translations can be added using [Weblate](https://translate.codeberg.org/projects/heliboard/). You will need an account to update translations and add languages. Add the language you want to translate to in Languages -> Manage translated languages in the top menu bar.
-Updating translations in a PR will not be accepted, as it may cause conflicts with Weblate translations.
+### Features inherited from HeliBoard
 
-Some notes on translations
-* when translating metadata, translating the changelogs is rather useless. It's available as it was requested by translators.
-* the `hidden_features_message` is horrible to translate with Weblate, and serves little benefit as it's just a copy of what's already in the wiki: https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features. It's been made available in the app on user request/contribution.
+- Suggestions and spell check, using dictionaries you can add ([dictionary repository](https://codeberg.org/Helium314/aosp-dictionaries))
+- Multilingual typing
+- Clipboard history
+- Emoji search (requires the emoji dictionary)
+- One-handed mode, split keyboard and number pad
+- Custom layouts ([layout format](layouts.md)), and custom colors with background images and Android 12+ dynamic colors
+- Glide typing, using a gesture library you supply yourself (it isn't open source, so it isn't bundled)
+- Backup and restore of settings and learned words
 
-## To Community
-There is the [discussions on GitHub](https://github.com/HeliBorg/HeliBoard/discussions), or if you prefer a more open network there is [Lemmy](https://lemmy.world/c/Heliboard).
-You can share your themes, layouts and dictionaries with other people:
-* Themes can be saved and loaded using the menu on top-right in the _adjust colors_ screen
-  * you can share custom colors in a separate [discussion section](https://github.com/HeliBorg/HeliBoard/discussions/categories/custom-colors)
-  * there are theme collections available at [Star-Trowa/heliboard-themes](https://github.com/Star-Trowa/heliboard-themes) and [PickleHik3/droid-tings](https://github.com/PickleHik3/droid-tings)
-* Custom keyboard layouts are text files whose content you can edit, copy and share
-  * this applies to main keyboard layouts and to special layouts adjustable in advanced settings
-  * see [layouts.md](layouts.md) for details
-  * you can share custom layouts in a separate [discussion section](https://github.com/HeliBorg/HeliBoard/discussions/categories/custom-layout)
-  * [Roccobot's Layout Maker](https://roccobot.github.io/HeliBoard-RLM/) is a browser-based editor for json layout files
-* Creating dictionaries is a little more work
-  * first you will need a wordlist in the format from [here](https://codeberg.org/Helium314/aosp-dictionaries/src/branch/main/wordlists/sample.combined) and in the repository readme
-    * you can load the wordlist dictionary directly in HeliBoard like you would load a dictionary, but other AOSP keyboard forks will likely need the .dict file
-  * then you need to compile the dictionary using [external tools](https://github.com/remi0s/aosp-dictionary-tools)
-    * when you want to add the dictionary to the [repository](https://codeberg.org/Helium314/aosp-dictionaries/), no need to compile to a .dict file
-  * the resulting file (and ideally the wordlist too) can be shared with other users
-  * note that there will not be any further dictionaries added to this app, but you can add dictionaries to the [dictionaries repository](https://codeberg.org/Helium314/aosp-dictionaries)
+### Install
 
-## Code Contribution
-See [Contribution Guidelines](CONTRIBUTING.md)
+1. Download the APK from the [latest release](https://github.com/adel5000/zakhrafa/releases/latest) and install it.
+2. Open **Zakhrafa** and follow the setup wizard, or enable the keyboard yourself under *Settings → System → Languages & input → On-screen keyboard*.
 
-# Links
-* Info
-  * [Wiki](https://github.com/HeliBorg/HeliBoard/wiki), including FAQ, help on customizing layouts, and gesture data gathering
-  * [Layout documentation](layouts.md) (more technical info regarding layout customization)
-  * [For creating custom dictionaries](https://codeberg.org/Helium314/aosp-dictionaries#wordlist-information) (see also top of the linked readme)
-* Community
-  * [Lemmy](https://lemmy.world/c/Heliboard)
-  * [Reddit](https://www.reddit.com/r/HeliBoard)
-  * GitHub [discussions](https://github.com/HeliBorg/HeliBoard/discussions)
-* Other
-  * [Translations](https://translate.codeberg.org/projects/heliboard/)
-  * [Dictionaries](https://codeberg.org/Helium314/aosp-dictionaries)
-  * [k3lp](https://codeberg.org/k3lp/k3lp) is a WIP library for keyboard layout parsing that will be implemented in HeliBoard when ready (created by [FlorisBoard](https://github.com/florisboard/florisboard/) maintainers)
-  * [swipe-o-scope](https://codeberg.org/eclexic/swipe-o-scope) for visualizing gesture data as created when using gesture data gathering
+> [!NOTE]
+> Current releases are **debug preview builds** (package `com.adel.zakhrafa.debug`). They can be installed next to HeliBoard or any other keyboard. When signed stable releases arrive, you will have to uninstall the preview before installing them.
 
-# License
+### Build from source
 
-HeliBoard (as a fork of OpenBoard) is licensed under GNU General Public License v3.0.
+Requirements: JDK 17 or newer, Android SDK platform 37 and NDK `28.0.13004108`.
 
- > Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
+```bash
+git clone https://github.com/adel5000/zakhrafa.git
+cd zakhrafa
+./gradlew assembleDebug           # APK in app/build/outputs/apk/debug/
+./gradlew testDebugUnitTest       # unit tests
+```
 
-See repo's [LICENSE](/LICENSE) file.
+On Windows, use `gradlew.bat`. For faster builds while developing, use `assembleDebugNoMinify`.
 
-Since the app is based on Apache 2.0 licensed AOSP Keyboard, an [Apache 2.0](LICENSE-Apache-2.0) license file is provided.
-The icon is licensed under [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). A [license file](LICENSE-CC-BY-SA-4.0) is also included.
+### Reporting issues
 
-# Credits
-- Icon by [Fabian OvrWrt](https://github.com/FabianOvrWrt) with contributions from [The Eclectic Dyslexic](https://github.com/the-eclectic-dyslexic)
+Please report bugs and feature requests in this repository's [Issues](https://github.com/adel5000/zakhrafa/issues), not to the HeliBoard project. Zakhrafa is an independent fork and is not affiliated with HeliBoard or its maintainers.
+
+### License and credits
+
+Zakhrafa is free software under the [GNU General Public License v3.0](LICENSE). It is built on:
+
+- [HeliBoard](https://github.com/HeliBorg/HeliBoard) and its contributors
 - [OpenBoard](https://github.com/openboard-team/openboard)
-- [AOSP Keyboard](https://android.googlesource.com/platform/packages/inputmethods/LatinIME/)
-- [LineageOS](https://review.lineageos.org/admin/repos/LineageOS/android_packages_inputmethods_LatinIME)
-- [Simple Keyboard](https://github.com/rkkr/simple-keyboard)
-- [Indic Keyboard](https://gitlab.com/indicproject/indic-keyboard)
-- [FlorisBoard](https://github.com/florisboard/florisboard/)
-- Our [contributors](https://github.com/HeliBorg/HeliBoard/graphs/contributors)
+- [AOSP LatinIME](https://android.googlesource.com/platform/packages/inputmethods/LatinIME/) (Apache 2.0, see [LICENSE-Apache-2.0](LICENSE-Apache-2.0))
 
-## Funding
+The Cairo typeface is used under the [SIL Open Font License 1.1](app/src/main/assets/fonts/Cairo-OFL.txt).
 
-This project is funded through [NGI Mobifree Fund](https://nlnet.nl/mobifree), a fund established by [NLnet](https://nlnet.nl) with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program. Learn more at the [NLnet project page](https://nlnet.nl/project/GestureTyping).
+---
 
-[<img src="https://nlnet.nl/logo/banner.png" alt="NLnet foundation logo" width="20%" />](https://nlnet.nl)
+<div dir="rtl">
 
-Further the project benefits from donations provided by many users (thank you all!).
+## العربية
+
+زخرفة لوحة مفاتيح مفتوحة المصدر، صُمّمت للكتابة بالعربية أولاً. تأتي بتخطيط عربي مُحسَّن، وخط «القاهرة» (Cairo) لعرض الحروف العربية بوضوح على المفاتيح، ومجموعة سمات صُمّمت خصيصاً لها. وتحتفظ بكل ما يجعل HeliBoard لوحة مفاتيح قوية: اقتراحات تعمل دون اتصال، وكتابة بعدة لغات، وسجل للحافظة، وتخصيص واسع.
+
+التطبيق **لا يطلب إذن الوصول إلى الإنترنت**، فلا يمكن لأي شيء تكتبه أن يغادر جهازك.
+
+### ما تضيفه زخرفة
+
+- **تخطيط عربي مُحسَّن:** الحروف «ى» و«آ» و«ئ» على المفاتيح الرئيسية، مع إعادة ترتيب الصفوف السفلية لكتابة أكثر سلاسة.
+- **خط «القاهرة» مدمج:** خط عربي متغيّر السماكة يُبقي حروف المفاتيح واضحة بكل الأحجام. ويمكنك التبديل إلى خط النظام أو تحميل ملف خط خاص بك.
+- **ست سمات جديدة:** زخرفة وInkly ونقطة، ولكل منها نسخة فاتحة وأخرى داكنة. تتبع وضع النهار/الليل في النظام، وتُظهر حدود المفاتيح افتراضياً.
+- **مفتاح للحافظة** في الصف السفلي بجانب مفتاح الرموز التعبيرية، ويمكن إظهار كل منهما أو إخفاؤه على حدة.
+- **اسحب على مفتاح المسافة للتبديل بين اللغات.** عند تفعيل أكثر من لغة، يظهر سهمان على مفتاح المسافة (`◄ اللغة ►`) للدلالة على إمكانية السحب.
+- **إعدادات الحجم والتخطيط:** خيارات جاهزة لارتفاع اللوحة (مُدمج، عادي، طويل) بلمسة واحدة، وتحكم منفصل في المسافات الأفقية والعمودية بين المفاتيح.
+- **لوحة تحرير نص مُعاد تصميمها:** مفاتيح الأسهم، والانتقال إلى بداية السطر أو النص ونهايته، وتحديد الكل، ونسخ/قص، ولصق، وحذف، والتراجع والإعادة. واللوحة مثبّتة في شريط الأدوات.
+
+### ميزات موروثة من HeliBoard
+
+- الاقتراحات والتدقيق الإملائي عبر قواميس يمكنك إضافتها ([مستودع القواميس](https://codeberg.org/Helium314/aosp-dictionaries))
+- الكتابة بعدة لغات
+- سجل الحافظة
+- البحث في الرموز التعبيرية (يتطلب قاموس الرموز التعبيرية)
+- وضع اليد الواحدة، ولوحة مقسومة، ولوحة أرقام
+- تخطيطات مخصصة ([صيغة التخطيطات](layouts.md))، وألوان مخصصة مع صورة خلفية والألوان الديناميكية في أندرويد 12 فأحدث
+- الكتابة بالإيماءات (السحب)، باستخدام مكتبة إيماءات تضيفها بنفسك (المكتبة ليست مفتوحة المصدر لذا لا تأتي مع التطبيق)
+- النسخ الاحتياطي واستعادة الإعدادات والكلمات المُتعلَّمة
+
+### التثبيت
+
+1. نزّل ملف APK من [أحدث إصدار](https://github.com/adel5000/zakhrafa/releases/latest) وثبّته.
+2. افتح تطبيق **زخرفة** واتّبع معالج الإعداد، أو فعّل اللوحة يدوياً من *الإعدادات ← النظام ← اللغات والإدخال ← لوحة المفاتيح على الشاشة*.
+
+> [!NOTE]
+> الإصدارات الحالية **نسخ تجريبية للمعاينة** (الحزمة `com.adel.zakhrafa.debug`)، ويمكن تثبيتها بجانب HeliBoard أو أي لوحة مفاتيح أخرى. وعند صدور الإصدارات المستقرة الموقّعة، ستحتاج إلى إزالة النسخة التجريبية قبل تثبيتها.
+
+### البناء من المصدر
+
+المتطلبات: JDK 17 أو أحدث، ومنصة Android SDK رقم 37، وNDK بالإصدار `28.0.13004108`.
+
+```bash
+git clone https://github.com/adel5000/zakhrafa.git
+cd zakhrafa
+./gradlew assembleDebug           # APK in app/build/outputs/apk/debug/
+./gradlew testDebugUnitTest       # unit tests
+```
+
+على ويندوز استخدم `gradlew.bat`. ولبناء أسرع أثناء التطوير استخدم `assembleDebugNoMinify`.
+
+### الإبلاغ عن المشكلات
+
+يُرجى الإبلاغ عن الأخطاء واقتراح الميزات في قسم [Issues](https://github.com/adel5000/zakhrafa/issues) في هذا المستودع، لا لدى مشروع HeliBoard. زخرفة نسخة مستقلة، وليست تابعة لمشروع HeliBoard أو القائمين عليه.
+
+### الترخيص والشكر
+
+زخرفة برنامج حر مرخّص بموجب [رخصة جنو العمومية العامة، الإصدار 3.0](LICENSE)، ومبني على:
+
+- [HeliBoard](https://github.com/HeliBorg/HeliBoard) والمساهمين فيه
+- [OpenBoard](https://github.com/openboard-team/openboard)
+- [AOSP LatinIME](https://android.googlesource.com/platform/packages/inputmethods/LatinIME/) (رخصة Apache 2.0، انظر [LICENSE-Apache-2.0](LICENSE-Apache-2.0))
+
+يُستخدم خط «القاهرة» (Cairo) بموجب [رخصة SIL للخطوط المفتوحة 1.1](app/src/main/assets/fonts/Cairo-OFL.txt).
+
+</div>

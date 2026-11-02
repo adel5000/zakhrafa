@@ -28,7 +28,7 @@ object SupportedEmojis {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
         if (context.prefs().contains(Settings.PREF_EMOJI_MAX_SDK)) return
         val paint = Paint()
-        (KeyboardTypeface.emojiTypeface() ?: KeyboardTypeface.customTypeface())
+        (KeyboardTypeface.emojiTypeface() ?: KeyboardTypeface.userTypeface())
             ?.let { paint.setTypeface(it) }
         val maxApi = context.assets.open("emoji/minApi.txt").reader().readLines().maxOf {
             val s = it.split(" ")
